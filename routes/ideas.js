@@ -66,8 +66,6 @@ ideaRouter.put("/:id", async (req, res) => {
 
 ideaRouter.delete("/:id", async (req, res) => {
 
-
-
     try {
         const deletedIdea = await Idea.findByIdAndDelete(req.params.id);
         res.json({ status: true, data: deletedIdea });
