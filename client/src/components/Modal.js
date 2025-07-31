@@ -2,13 +2,14 @@ export class Modal {
     constructor() {
         this._modal = document.querySelector("#modal");
         this._modalBtn = document.querySelector("#modal-btn");
+        this.addEventListeners();
 
-        this._modalBtn.addEventListener("click", this.open.bind(this));
-        window.addEventListener("click", this.outsideClick.bind(this));
     }
 
     addEventListeners() {
-
+        this._modalBtn.addEventListener("click", this.open.bind(this));
+        window.addEventListener("click", this.outsideClick.bind(this));
+        document.addEventListener("closemodal", () => this.close());
     }
 
     open() {
