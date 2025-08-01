@@ -38,8 +38,6 @@ export class IdeaForm {
     const newIdea = await IdeasApi.createIdea(idea);
     this._ideaList.addIdeaToList(newIdea.data.data);
 
-
-
     this.render();
 
     document.dispatchEvent(new Event("closemodal"));
