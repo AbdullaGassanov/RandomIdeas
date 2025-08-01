@@ -4,6 +4,7 @@ import express from "express";
 import dotenv from "dotenv";
 import { ideaRouter } from "./routes/ideas.js";
 import { connectDB } from "./config/db.js";
+import cors from "cors";
 
 // Initialization and invoke necessary function
 const app = express();
@@ -20,6 +21,15 @@ app.use(express.static(path.join(__dirname, "public")));
 // Body parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// cors middleware
+const corsOprions = {
+    origin: ["http://localhost:5000", "http://localhost:3000"],
+    methods: ['GET', 'POST'],
+    credentials: true
+};
+
+app.use(cors(corsOprions));
 
 
 app.get("/", (req, res) => {

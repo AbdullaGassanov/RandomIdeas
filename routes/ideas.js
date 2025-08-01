@@ -38,6 +38,7 @@ ideaRouter.post("/", async (req, res) => {
         const savedIdea = await idea.save();
         res.json({ status: true, data: savedIdea });
     } catch (error) {
+        console.log("Idea valudation failed");
         res.status(500).json({ success: false, error: "Something went wrong" });
     }
 
